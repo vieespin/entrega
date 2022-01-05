@@ -11,6 +11,10 @@ class FormRegister extends model{
     public $email;
     public $password;
     public $password_repeat;
+    public $NOMBRE;
+    public $AP_PATERNO;
+    public $AP_MATERNO;
+    public $RUT;
     
     public function rules()
     {
@@ -24,6 +28,8 @@ class FormRegister extends model{
             ['email', 'email_existe'],
             ['password', 'match', 'pattern' => "/^.{8,16}$/", 'message' => 'Mínimo 6 y máximo 16 caracteres'],
             ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => 'Los passwords no coinciden'],
+            [['RUT'], 'string', 'max' => 15],
+            [['NOMBRE', 'AP_PATERNO', 'AP_MATERNO'], 'string', 'max' => 30],
         ];
     }
     

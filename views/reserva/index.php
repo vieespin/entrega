@@ -28,13 +28,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'ID_RESERVA',
             'ID_LABORATORIO',
-            'ID_USUARIO',
+            [
+                'attribute' => 'ID_LABORATORIO',
+                'value' => 'lABORATORIO.NOMBRE_LAB',
+                'label' => 'Laboratorio',
+            ],
+            'USERS_ID',
+            [
+                'attribute' => 'USERS_ID',
+                'value' => 'uSUARIO.NOMBRE',
+                'label' => 'Usuario',
+            ],
             'FECHA',
             'OBSERVACION',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
 
 </div>

@@ -37,7 +37,7 @@
                 'items' => [
                    
                     ['label' => 'Laboratorio','url'=>['/laboratorio'],'iconStyle' => 'fas fa-desktop', 'iconClassAdded' => 'text-danger'],
-                    ['label' => 'Usuario','url'=>['/usuario'], 'iconStyle' => 'fas fa-user-alt', 'iconClassAdded' => 'text-warning'],
+                    ['label' => 'Usuario','url'=>['/users'], 'iconStyle' => 'fas fa-user-alt', 'iconClassAdded' => 'text-warning'],
                     ['label' => 'Reserva', 'icon' => 'calendar', 'url' => ['/reserva'], 'iconClassAdded' => '_blank'],
                     ['label' => 'Calendario', 'icon' => 'fas fa-calendar-check', 'url' => ['reserva/calendario'], 'iconClassAdded' => ''],
                 

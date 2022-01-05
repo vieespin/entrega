@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Laboratorio;
-use app\models\Usuario;
+use app\models\Users;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Reserva */
@@ -21,7 +21,7 @@ use app\models\Usuario;
 
     <?php //echo $form->field($model, 'ID_USUARIO')->textInput() ?>
 
-    <?=$form->field($model, 'ID_USUARIO')->dropDownList(ArrayHelper::map(Usuario::find()->all(), 'ID_USUARIO', function($model){
+    <?=$form->field($model, 'USERS_ID')->dropDownList(ArrayHelper::map(Users::find()->all(), 'id', function($model){
         return $model->NOMBRE.' '.$model->AP_PATERNO.' '.$model->AP_MATERNO;
     })) ?>
 

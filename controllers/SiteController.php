@@ -78,6 +78,9 @@ class SiteController extends Controller
     }
  }
  
+ 
+
+ 
  public function actionRegister()
  {
   //Creamos la instancia con el model de validación
@@ -271,5 +274,22 @@ class SiteController extends Controller
     public function actionCalendar()
     {
         return $this->render('calendar');
+    }
+
+    public function actionCreateUsers()
+    {
+        $model = new \app\models\Users();
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view-users', 'id' => $model->id]);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
+        return $this->render('create-users', [
+            'model' => $model,
+        ]);
     }
 }

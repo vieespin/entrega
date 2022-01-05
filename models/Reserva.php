@@ -32,12 +32,12 @@ class Reserva extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID_LABORATORIO', 'ID_USUARIO', 'FECHA'], 'required'],
-            [['ID_LABORATORIO', 'ID_USUARIO'], 'integer'],
+            [['ID_LABORATORIO', 'USERS_ID', 'FECHA'], 'required'],
+            [['ID_LABORATORIO', 'USERS_ID'], 'integer'],
             [['FECHA'], 'safe'],
             //['FECHA', 'unique', 'message'=>'pero wn como se te ocurre'],
             [['OBSERVACION'], 'string', 'max' => 100],
-            [['ID_USUARIO'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['ID_USUARIO' => 'ID_USUARIO']],
+            [['USERS_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['USERS_ID' => 'id']],
             [['ID_LABORATORIO'], 'exist', 'skipOnError' => true, 'targetClass' => Laboratorio::className(), 'targetAttribute' => ['ID_LABORATORIO' => 'ID_LABORATORIO']],
             
             ['FECHA', 'validarHora'],
@@ -52,7 +52,7 @@ class Reserva extends \yii\db\ActiveRecord
         return [
             'ID_RESERVA' => 'Id  Reserva',
             'ID_LABORATORIO' => 'Id  Laboratorio',
-            'ID_USUARIO' => 'Id  Usuario',
+            'USERS_ID' => 'Id  Usuario',
             'FECHA' => 'Fecha',
             'OBSERVACION' => 'Observacion',
         ];
@@ -89,6 +89,6 @@ class Reserva extends \yii\db\ActiveRecord
      */
     public function getUSUARIO()
     {
-        return $this->hasOne(Usuario::className(), ['ID_USUARIO' => 'ID_USUARIO']);
+        return $this->hasOne(Users::className(), ['id' => 'USERS_ID']);
     }
 }

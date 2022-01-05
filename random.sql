@@ -53,17 +53,19 @@ CREATE TABLE `reserva` (
 --
 
 CREATE TABLE `users` (
-  `RUT` varchar(15) NOT NULL,
-  `NOMBRE` varchar(30) NOT NULL,
-  `AP_PATERNO` varchar(30) NOT NULL,
-  `AP_MATERNO` varchar(30) DEFAULT NULL,
+
+  
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(80) NOT NULL,
   `password` varchar(250) NOT NULL,
   `authKey` varchar(250) NOT NULL,
   `accessToken` varchar(250) NOT NULL,
-  `activate` tinyint(1) NOT NULL DEFAULT 0
+  `activate` tinyint(1) NOT NULL DEFAULT 0,
+  `RUT` varchar(15) NOT NULL,
+  `NOMBRE` varchar(30) NOT NULL,
+  `AP_PATERNO` varchar(30) NOT NULL,
+  `AP_MATERNO` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

@@ -17,7 +17,7 @@ class ReservaSearch extends Reserva
     public function rules()
     {
         return [
-            [['ID_RESERVA', 'ID_LABORATORIO', 'ID_USUARIO'], 'integer'],
+            [['ID_RESERVA', 'ID_LABORATORIO', 'USERS_ID'], 'integer'],
             [['FECHA', 'OBSERVACION'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class ReservaSearch extends Reserva
         $query->andFilterWhere([
             'ID_RESERVA' => $this->ID_RESERVA,
             'ID_LABORATORIO' => $this->ID_LABORATORIO,
-            'ID_USUARIO' => $this->ID_USUARIO,
+            'USERS_ID' => $this->USERS_ID,
             'FECHA' => $this->FECHA,
         ]);
 
