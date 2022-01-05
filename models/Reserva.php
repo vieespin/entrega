@@ -39,6 +39,7 @@ class Reserva extends \yii\db\ActiveRecord
             [['OBSERVACION'], 'string', 'max' => 100],
             [['ID_USUARIO'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['ID_USUARIO' => 'ID_USUARIO']],
             [['ID_LABORATORIO'], 'exist', 'skipOnError' => true, 'targetClass' => Laboratorio::className(), 'targetAttribute' => ['ID_LABORATORIO' => 'ID_LABORATORIO']],
+            
             ['FECHA', 'validarHora'],
         ];
     }
