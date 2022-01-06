@@ -148,30 +148,36 @@ class ReservaController extends Controller
 
     public function actionCalendario(){
 
-        $reservas = Reserva::find()->all();
+        if (!\Yii::$app->user->isGuest) {
+            
 
-        $eventos = [];
+                $reservas = Reserva::find()->all();
 
-        foreach ($reservas as $reserva) {
+                $eventos = [];
 
-            $array_temp = [
-                'id'               => $reserva->ID_RESERVA,
-                'title'            => $reserva->uSUARIO->NOMBRE.': '.$reserva->OBSERVACION.','.$reserva->lABORATORIO->NOMBRE_LAB,
+                foreach ($reservas as $reserva) {
 
-                'start'            => $reserva->FECHA,
-                // 'end'              => '2021-12-17T19:30:00',
-                'overlap'          => false, // Overlap is default true
-                'editable'         => false,
-                'startEditable'    => false,
-                'durationEditable' => true,
-            ];
+                    $array_temp = [
+                        'id'               => $reserva->ID_RESERVA,
+                        'title'            => $reserva->uSUARIO->NOMBRE.': '.$reserva->OBSERVACION.','.$reserva->lABORATORIO->NOMBRE_LAB,
 
-            array_push($eventos, $array_temp);
-        }
+                        'start'            => $reserva->FECHA,
+                        // 'end'              => '2021-12-17T19:30:00',
+                        'overlap'          => false, // Overlap is default true
+                        'editable'         => false,
+                        'startEditable'    => false,
+                        'durationEditable' => true,
+                    ];
+
+                    array_push($eventos, $array_temp);
+                }
 
 
-        return $this->render('calendario', [
-            'eventos' => $eventos,
-        ]);
-    }
+                return $this->render('calendario', [
+                    'eventos' => $eventos,
+                ]);
+                }else{
+                     return $this->redirect(['site/login']);
+                }
+            }
 }

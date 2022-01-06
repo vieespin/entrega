@@ -6,7 +6,7 @@ $this->title = 'Bienvenidos';
 ?>
 
     <div class="item" style="text-align: center;">
-        <img src="http://localhost/basic/img/laboratoriocc.png" class="img-rounded" style="width: 100%; max-width:10000px; margin-top: 10px;">
+        <img src="http://localhost:8080/entrega/img/laboratoriocc.png" class="img-rounded" style="width: 100%; max-width:10000px; margin-top: 10px;">
     </div>
 <div class="site-index">
 

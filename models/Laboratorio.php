@@ -29,7 +29,7 @@ class Laboratorio extends \yii\db\ActiveRecord
     {
         return [
             [['NOMBRE_LAB'], 'required'],
-            [['NOMBRE_LAB'], 'string', 'max' => 15],
+            [['NOMBRE_LAB'], 'string', 'max' => 50],
         ];
     }
 

@@ -104,6 +104,16 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
     public $accessToken;
     public $activate;
 
+    public $verification_code;
+    public $role;
+    public $RUT;
+    public $NOMBRE;
+    public $AP_PATERNO;
+    public $AP_MATERNO;
+
+
+
+
     /**
      * @inheritdoc
      */
@@ -210,5 +220,25 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
         {
         return $password === $password;
         }
+    }
+    public static function isUserAdmin($id)
+    {
+       if (Users::findOne(['id' => $id, 'activate' => '1', 'role' => 2])){
+        return true;
+       } else {
+
+        return false;
+       }
+
+    }
+
+    public static function isUserSimple($id)
+    {
+       if (Users::findOne(['id' => $id, 'activate' => '1', 'role' => 1])){
+       return true;
+       } else {
+
+       return false;
+       }
     }
 }
